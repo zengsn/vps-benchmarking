@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kang.estimate.module.management.dao.UserMapper">
+
+    <select id="selectByName" resultType="com.kang.estimate.module.management.entity.User">
+        select *
+        from user
+        where userName=#{userName}
+    </select>
+
+    <select id="getRoleName" resultType="String">
+        select roleName
+        from user
+        left join role on `user`.roleId=role.id
+        where stsCd='A' and `user`.userName=#{userName}
+    </select>
+</mapper>
+
+

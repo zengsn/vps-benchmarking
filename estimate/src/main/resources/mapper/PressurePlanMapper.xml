@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kang.estimate.module.pressure.dao.PressurePlanMapper">
+    
+    <select id="obtainPressurePlanList" resultType="com.kang.estimate.module.pressure.entity.PressurePlanEntity">
+        select *
+        from pressure_plan
+        where stsCd='A' and createBy=#{userId}
+    </select>
+
+    <select id="obtainHeaders" resultType="com.kang.estimate.module.pressure.entity.HeaderEntity">
+        select *
+        from header
+        where stsCd='A' and planId=#{planId}
+    </select>
+
+    <select id="obtainArguments" resultType="com.kang.estimate.module.pressure.entity.ArgumentEntity">
+        select *
+        from argument
+        where stsCd='A' and planId=#{planId}
+    </select>
+
+</mapper>
+
+

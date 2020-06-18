@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kang.estimate.module.deploy.dao.FileMapper">
+
+    <select id="selectByPath" resultType="com.kang.estimate.module.deploy.entity.FileEntity">
+        select *
+        from file
+        where stsCd='A' and CONCAT(path,fileName)=#{path} and createBy=#{createBy}
+        limit 1
+    </select>
+
+    <select id="selectFileList" resultType="com.kang.estimate.module.deploy.entity.FileEntity">
+        select *
+        from file
+        where stsCd='A' and createBy=#{createBy}
+    </select>
+
+</mapper>
+
+
